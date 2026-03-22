@@ -15,9 +15,17 @@ import certificateRoutes from './routes/certificateRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import { errorHandler } from './middleware/errorMiddleware.js';
 
-connectDB();
-
 const app = express();
+
+// Await DB connection before processing routes
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (error) {
+        next(error);
+    }
+});
 
 app.use(cors("*"));
 app.use(express.json());
