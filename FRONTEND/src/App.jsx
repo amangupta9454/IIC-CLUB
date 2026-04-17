@@ -47,7 +47,7 @@ const PublicLayout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow"> {/* PT-20 corresponds to Navbar height to prevent overlap */}
+      <main className="grow"> {/* PT-20 corresponds to Navbar height to prevent overlap */}
         {children}
       </main>
       <Footer />
@@ -59,7 +59,7 @@ const NavbarLayout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="grow pt-20">
         {children}
       </main>
     </div>
@@ -85,7 +85,7 @@ const AdminProtectedRoute = ({ children }) => {
 
 function PageLoader() {
   return (
-    <div className="min-h-[200px] flex items-center justify-center">
+    <div className="min-h-50 flex items-center justify-center">
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
